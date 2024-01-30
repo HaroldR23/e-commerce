@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { Detail } from './Detail'
+import CardPropTypes from './CardPropTypes';
 import { SearchContext } from '../../../contexts/SearchContext';
-import './Card.css'
+import './Card.css';
 
 function Card ({ image, title, price, description }) {
     const {
@@ -32,5 +33,7 @@ function Card ({ image, title, price, description }) {
         </div>
     )
 }
+
+Card.propTypes = CardPropTypes;
 
 export { Card }

@@ -1,3 +1,4 @@
+import TypeFilterPropTypes from './TypeFilterPropTypes';
 import './TypeFilter.css'
 
 function TypeFilter ({name, options}) {
@@ -16,5 +17,7 @@ function TypeFilter ({name, options}) {
         </div>
     )
 }
+
+TypeFilter.propTypes = TypeFilterPropTypes;
 
 export { TypeFilter }
