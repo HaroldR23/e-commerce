@@ -1,3 +1,4 @@
+import SearchProviderPropTypes from "./SearchProviderPropTypes";
 import { useState, useEffect, createContext } from "react";
 
 const SearchContext = createContext();
@@ -60,5 +61,7 @@ function SearchProvider({ children }) {
     </SearchContext.Provider>
   );
 }
+
+SearchProvider.propTypes = SearchProviderPropTypes;
 
 export { SearchContext, SearchProvider };

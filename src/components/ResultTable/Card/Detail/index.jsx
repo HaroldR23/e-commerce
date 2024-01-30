@@ -1,5 +1,6 @@
-import { Rating } from "../../../Filter/RatingFilter/Rating"
-import './Detail.css'
+import DetailPropTypes from "./DetailPropTypes";
+import { Rating } from "../../../Filter/RatingFilter/Rating";
+import './Detail.css';
 
 function Detail ({title, price }) {
     return (
@@ -10,5 +11,7 @@ function Detail ({title, price }) {
         </div>
     )
 }
+
+Detail.propTypes = DetailPropTypes;
 
 export { Detail }
