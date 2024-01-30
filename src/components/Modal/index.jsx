@@ -10,7 +10,8 @@ function Modal () {
         imageProduct,
         titleProduct,
         priceProduct,
-        descriptionProduct
+        descriptionProduct,
+        rateProduct
     } = useContext(SearchContext);
 
     const setCloseModal = () => {
@@ -29,7 +30,7 @@ function Modal () {
                         <h3>{titleProduct}</h3>
                         <h3>${priceProduct}</h3>
                     </div>
-                    <Rating stars={3}/>
+                    <Rating stars={rateProduct}/>
                     <h6>{descriptionProduct}</h6>
                 </div>
             </div>
