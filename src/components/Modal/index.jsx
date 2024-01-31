@@ -3,6 +3,7 @@ import './Modal.css'
 import { Rating } from "../Filter/RatingFilter/Rating"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { SearchContext } from '../../contexts/SearchContext';
+import { AddToCartButton } from '../Button/AddToCartButton';
 
 function Modal () {
     const {
@@ -32,6 +33,9 @@ function Modal () {
                     </div>
                     <Rating stars={rateProduct}/>
                     <h6>{descriptionProduct}</h6>
+                    <div className='FooterModalContainer'>
+                        <AddToCartButton />
+                    </div>
                 </div>
             </div>
         </div>

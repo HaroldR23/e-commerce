@@ -56,3 +56,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.FooterModalContainer {
+    display: flex;
+    justify-content: space-between;
+}
