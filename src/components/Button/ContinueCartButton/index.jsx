@@ -1,9 +1,9 @@
 import { Button } from "../";
 
-function AddToCartButton() {
+function ContinueCartButton() {
     return (
         <Button type="Continue"/>
     )
 }   
 
-export { AddToCartButton }
+export { ContinueCartButton }
