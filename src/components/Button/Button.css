@@ -1,0 +1,10 @@
+.Button {
+    background-color: #56D35B;
+    height: 45px;
+    width: 95px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    border-color: transparent;
+}

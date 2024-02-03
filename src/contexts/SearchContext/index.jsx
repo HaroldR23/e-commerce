@@ -12,6 +12,7 @@ function SearchProvider({ children }) {
   const [titleProduct, setTitleProduct] = useState("");
   const [priceProduct, setPriceProduct] = useState("");
   const [descriptionProduct, setDescriptionProduct] = useState("");
+  const [rateProduct, setRateProduct] = useState(0);
 
   const getData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -54,7 +55,9 @@ function SearchProvider({ children }) {
         priceProduct,
         setPriceProduct,
         descriptionProduct,
-        setDescriptionProduct
+        setDescriptionProduct,
+        rateProduct,
+        setRateProduct
       }}
     >
       {children}
