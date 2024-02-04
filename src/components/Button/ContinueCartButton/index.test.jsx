@@ -6,7 +6,6 @@ describe("ContinueCartButton component", () => {
         const textContent = "Continue";
         render(<ContinueCartButton />);
         const continueCartButton = screen.getByRole("button");
-        console.log(continueCartButton.textContent)
         expect(continueCartButton.textContent).toEqual(textContent);
     });
 });
