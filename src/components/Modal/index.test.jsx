@@ -1,5 +1,5 @@
 import { Modal } from '.';
-import { mockValue } from '../../contexts/SearchContext/MockSearchContext';
+import { mockValue } from './indexConfig';
 import { render, screen } from '@testing-library/react';
 import { SearchContext } from '../../contexts/SearchContext';
 describe("Modal", () => {
