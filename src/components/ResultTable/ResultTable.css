@@ -4,7 +4,7 @@
 
 .ResultContainer .CardResultsContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, 250px);
     gap: 5%;
     align-items: center;
     justify-content: center;
