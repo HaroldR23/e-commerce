@@ -6,7 +6,6 @@ describe("AddToCartButton component", () => {
         const textContent = "Add";
         render(<AddToCartButton />);
         const addToCartButton = screen.getByRole("button");
-        console.log(addToCartButton.textContent)
         expect(addToCartButton.textContent).toEqual(textContent);
     });
 });
