@@ -5,7 +5,7 @@ import './Detail.css';
 function Detail ({title, price, rate }) {
     return (
         <div className="DetailsCardContainer">
-            <h3>{title}</h3>
+            <h3 id="titleContent">{title}</h3>
             <Rating stars={rate}/>
             <h3>${price}</h3>
         </div>
