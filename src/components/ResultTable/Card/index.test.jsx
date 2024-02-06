@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Card } from "./";
 import { SearchContext } from "../../../contexts/SearchContext";
-import { mockValue } from "../../../contexts/SearchContext/indexConfig";
+import { mockValue } from "../../../contexts/SearchContext/indexConfigTests";
 
 describe("Detail component", () => {
     const title = "Title test";
