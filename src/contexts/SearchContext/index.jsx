@@ -45,6 +45,7 @@ function SearchProvider({ children }) {
         searchValue,
         setSearchValue,
         searchedProducts,
+        setProducts,
         isLoading,
         isOpen,
         setIsOpen,
