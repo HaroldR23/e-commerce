@@ -5,36 +5,45 @@ import { SearchContext } from '../../../contexts/SearchContext';
 function SortFilter () {
     const {
         searchedProducts,
-        setProducts
+        setProducts,
+        isFiltering,
+        filteredProducts,
+        setFilteredProducts
     } = useContext(SearchContext);
+
     const sortPriceLowToHigh = (products) => {
-        products.sort((priceA, priceB) => priceA.price - priceB.price);
-        setProducts(products);
+        const sortedProducts = [...products].sort((priceA, priceB) => priceA.price - priceB.price);
+        if(isFiltering) return setFilteredProducts(sortedProducts);
+        return setProducts(sortedProducts);
     };
     const sortPriceHighToLow = (products) => {
-        products.sort((priceA, priceB) => priceB.price - priceA.price);
-        setProducts(products);
+        const sortedProducts = [...products].sort((priceA, priceB) => priceB.price - priceA.price);
+        if(isFiltering) return setFilteredProducts(sortedProducts);
+        return setProducts(sortedProducts);
     };
     const sortAlphabetically = (products) => {
-        products.sort((priceA, priceB) => priceA.title.localeCompare(priceB.title));
-        setProducts(products);
+        const sortedProducts = [...products].sort((priceA, priceB) => priceA.title.localeCompare(priceB.title));
+        if(isFiltering) return setFilteredProducts(sortedProducts);
+        return setProducts(sortedProducts);
     };
+
     const handleOnClick = (e) => {
         const targetValue = e.target.value;
         switch(targetValue){
             case "Price_Low":
-                sortPriceLowToHigh(searchedProducts)
+                isFiltering ? sortPriceLowToHigh(filteredProducts) : sortPriceLowToHigh(searchedProducts)
                 break;
             case "Price_High":
-                sortPriceHighToLow(searchedProducts)
+                isFiltering ? sortPriceHighToLow(filteredProducts) : sortPriceHighToLow(searchedProducts)
                 break;
             case "Name":
-                sortAlphabetically(searchedProducts)
+                isFiltering ? sortAlphabetically(filteredProducts) : sortAlphabetically(searchedProducts)
                 break;
             default: 
                 break;
         }
     }
+
     return (
         <div className='SortFilterContainer'>
             <select onClick={handleOnClick} name="order" id="order">
