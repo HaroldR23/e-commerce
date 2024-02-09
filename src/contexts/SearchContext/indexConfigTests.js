@@ -5,9 +5,13 @@ export const mockValue = {
     setSearchValue: mockSetFunction,
     setProducts: mockSetFunction,
     searchedProducts: [],
+    filteredProducts: [],
+    setFilteredProducts: mockSetFunction,
     isLoading: true,
     isOpen: false,
     setIsOpen: mockSetFunction,
+    isFiltering: false,
+    setIsFiltering: mockSetFunction,
     imageProduct: "",
     setImageProduct: mockSetFunction,
     titleProduct: "",
@@ -18,4 +22,4 @@ export const mockValue = {
     setDescriptionProduct: mockSetFunction,
     rateProduct: 0,
     setRateProduct: mockSetFunction,
-}
+};

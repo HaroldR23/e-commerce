@@ -5,9 +5,13 @@ const SearchContext = createContext();
 
 function SearchProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isFiltering, setIsFiltering] = useState(false)
+
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
   const [imageProduct, setImageProduct] = useState("");
   const [titleProduct, setTitleProduct] = useState("");
   const [priceProduct, setPriceProduct] = useState("");
@@ -48,9 +52,13 @@ function SearchProvider({ children }) {
         setProducts,
         isLoading,
         isOpen,
+        isFiltering,
+        setIsFiltering,
         setIsOpen,
         imageProduct,
         setImageProduct,
+        filteredProducts, 
+        setFilteredProducts,
         titleProduct,
         setTitleProduct,
         priceProduct,
