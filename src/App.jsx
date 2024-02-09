@@ -8,11 +8,13 @@ import { SearchProvider } from './contexts/SearchContext'
 function App() {
   return (
     <SearchProvider>
-      <Navbar />
-      <ResultInfoBar />
-      <div className='content-ResultandFilter'>
-        <Filter/>
-        <ResultTable />
+        <div>
+        <Navbar />
+        <ResultInfoBar />
+        <div className='content-ResultandFilter'>
+          <Filter/>
+          <ResultTable />
+        </div>
       </div>
     </SearchProvider>
   )

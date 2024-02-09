@@ -4,7 +4,7 @@ import { Detail } from "./";
 describe("Detail component", () => {
     it("renders title and price given as props", () => {
         const title = "Title test";
-        const price = "100";
+        const price = 100;
         const rate = 5;
 
         const { container } = render(<Detail price={price} title={title} rate={rate} />);

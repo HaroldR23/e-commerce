@@ -5,7 +5,7 @@ import { mockValue } from "../../../contexts/SearchContext/indexConfigTests";
 
 describe("Detail component", () => {
     const title = "Title test";
-    const price = "100";
+    const price = 100;
     const rate = 5;
     const description = "Description test";
     const srcImageProp = "./path/img/src";
