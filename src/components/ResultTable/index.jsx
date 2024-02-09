@@ -12,7 +12,7 @@ function ResultTable () {
         isFiltering,
         filteredProducts
       } = useContext(SearchContext);
-
+      console.log(searchedProducts)
       return (
         <div className='ResultContainer'>
             <h2>Results:</h2>
