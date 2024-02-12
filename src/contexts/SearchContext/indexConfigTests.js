@@ -10,8 +10,6 @@ export const mockValue = {
     isLoading: true,
     isOpen: false,
     setIsOpen: mockSetFunction,
-    isFiltering: false,
-    setIsFiltering: mockSetFunction,
     imageProduct: "",
     setImageProduct: mockSetFunction,
     titleProduct: "",
@@ -22,4 +20,8 @@ export const mockValue = {
     setDescriptionProduct: mockSetFunction,
     rateProduct: 0,
     setRateProduct: mockSetFunction,
+    isFilteringByCategory: false,
+    setIsFilteringByCategory: mockSetFunction,
+    isFilteringByRate: false,
+    setIsFilteringByRate: mockSetFunction
 };

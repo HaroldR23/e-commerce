@@ -7,10 +7,11 @@ function SearchProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isFilteringByCategory, setIsFilteringByCategory] = useState(false)
   const [isFilteringByRate, setIsFilteringByRate] = useState(false)
-  const [filterOptions, setFilterOptions] = useState({
-    category: "",
-    // rate: 0,
-});
+
+//   const [filterOptions, setFilterOptions] = useState({
+//     category: "",
+//     // rate: 0,
+// });
 
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -55,7 +56,7 @@ function SearchProvider({ children }) {
         setSearchValue,
         searchedProducts,
         setProducts,
-        filterOptions, setFilterOptions,
+        // filterOptions, setFilterOptions,
         isLoading,
         isOpen,
         isFilteringByCategory, 
