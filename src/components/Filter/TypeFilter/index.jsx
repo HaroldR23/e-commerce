@@ -2,32 +2,33 @@ import TypeFilterPropTypes from './TypeFilterPropTypes';
 import './TypeFilter.css'
 import { useContext, useState } from 'react';
 import { SearchContext } from '../../../contexts/SearchContext';
+import { Rating } from '../RatingFilter/Rating';
 
-function TypeFilter ({name, options}) {
-    const [checkboxes, setCheckboxes] = useState(options.map(option => (
-        {id: option.id, label: option.label, checked:false}
-    )));
+function TypeFilter ({name, options, handleFilterOptions, handleFilteredProducts}) {
+    const [checkboxes, setCheckboxes] = useState(options);
     const { 
-        searchedProducts, 
-        setIsFiltering, 
-        setFilteredProducts
+        setIsFilteringByCategory
     } = useContext(SearchContext);
 
     const handleCheckboxChange = (e) => {
         const optionId = e.target.id;
-            setCheckboxes((prevCheckboxes) =>
-                prevCheckboxes.map((checkbox) =>
-                    checkbox.id === optionId
-                    ? { ...checkbox, checked: checkbox.checked ? setIsFiltering(false) && false : true }
-                    : { ...checkbox, checked: false }
-            ));
+        const currentCheckboxes = checkboxes.map((checkbox) => {
+            if(checkbox.id === optionId) {
+                if(checkbox.checked) {
+                    handleFilterOptions({category: null});
+                    setIsFilteringByCategory(false);
+                } else {
+                    handleFilterOptions({category: optionId});
+                    handleFilteredProducts();
+                    setIsFilteringByCategory(true);
+                }
+            }
+            return checkbox.id === optionId ? 
+            { ...checkbox, checked: checkbox.checked ? false : true } : 
+            { ...checkbox, checked: false }
+        });
+        setCheckboxes(currentCheckboxes);
     };
-    const handleOnClick = (e) => {
-        const productId = e.target.id
-        const filteredProducts = searchedProducts.filter(product => product.category === productId);
-        setIsFiltering(true)
-        setFilteredProducts(filteredProducts);
-    };  
 
     return (
         <div className='TypeFilterContainer'>
@@ -40,7 +41,6 @@ function TypeFilter ({name, options}) {
                     <input 
                         type="checkbox" 
                         onChange={handleCheckboxChange} 
-                        onClick={handleOnClick}  
                         id={option.id} 
                         name={option.label} 
                         checked={option.checked}

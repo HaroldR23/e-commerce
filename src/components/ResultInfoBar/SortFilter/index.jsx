@@ -6,24 +6,25 @@ function SortFilter () {
     const {
         searchedProducts,
         setProducts,
-        isFiltering,
+        // isFiltering,
+        isFilteringByCategory, isFilteringByRate,
         filteredProducts,
         setFilteredProducts
     } = useContext(SearchContext);
 
     const sortPriceLowToHigh = (products) => {
         const sortedProducts = [...products].sort((priceA, priceB) => priceA.price - priceB.price);
-        if(isFiltering) return setFilteredProducts(sortedProducts);
+        if((isFilteringByCategory ||  isFilteringByRate)) return setFilteredProducts(sortedProducts);
         return setProducts(sortedProducts);
     };
     const sortPriceHighToLow = (products) => {
         const sortedProducts = [...products].sort((priceA, priceB) => priceB.price - priceA.price);
-        if(isFiltering) return setFilteredProducts(sortedProducts);
+        if((isFilteringByCategory ||  isFilteringByRate)) return setFilteredProducts(sortedProducts);
         return setProducts(sortedProducts);
     };
     const sortAlphabetically = (products) => {
         const sortedProducts = [...products].sort((priceA, priceB) => priceA.title.localeCompare(priceB.title));
-        if(isFiltering) return setFilteredProducts(sortedProducts);
+        if((isFilteringByCategory ||  isFilteringByRate)) return setFilteredProducts(sortedProducts);
         return setProducts(sortedProducts);
     };
 
@@ -31,13 +32,13 @@ function SortFilter () {
         const targetValue = e.target.value;
         switch(targetValue){
             case "Price_Low":
-                isFiltering ? sortPriceLowToHigh(filteredProducts) : sortPriceLowToHigh(searchedProducts)
+                (isFilteringByCategory ||  isFilteringByRate) ? sortPriceLowToHigh(filteredProducts) : sortPriceLowToHigh(searchedProducts)
                 break;
             case "Price_High":
-                isFiltering ? sortPriceHighToLow(filteredProducts) : sortPriceHighToLow(searchedProducts)
+                (isFilteringByCategory ||  isFilteringByRate) ? sortPriceHighToLow(filteredProducts) : sortPriceHighToLow(searchedProducts)
                 break;
             case "Name":
-                isFiltering ? sortAlphabetically(filteredProducts) : sortAlphabetically(searchedProducts)
+                (isFilteringByCategory ||  isFilteringByRate) ? sortAlphabetically(filteredProducts) : sortAlphabetically(searchedProducts)
                 break;
             default: 
                 break;

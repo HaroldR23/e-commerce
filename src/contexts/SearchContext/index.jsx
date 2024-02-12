@@ -5,7 +5,12 @@ const SearchContext = createContext();
 
 function SearchProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
-  const [isFiltering, setIsFiltering] = useState(false)
+  const [isFilteringByCategory, setIsFilteringByCategory] = useState(false)
+  const [isFilteringByRate, setIsFilteringByRate] = useState(false)
+  const [filterOptions, setFilterOptions] = useState({
+    category: "",
+    // rate: 0,
+});
 
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -50,10 +55,13 @@ function SearchProvider({ children }) {
         setSearchValue,
         searchedProducts,
         setProducts,
+        filterOptions, setFilterOptions,
         isLoading,
         isOpen,
-        isFiltering,
-        setIsFiltering,
+        isFilteringByCategory, 
+        setIsFilteringByCategory,
+        isFilteringByRate, 
+        setIsFilteringByRate,
         setIsOpen,
         imageProduct,
         setImageProduct,
