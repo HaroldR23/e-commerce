@@ -8,3 +8,17 @@
     border-radius: 10px;
     border-color: transparent;
 }
+
+.OperationItem {
+    background-color: transparent;
+    border: solid gray 3px;
+    border-radius: 50%;
+    color: gray;
+    font-size: medium;
+    font-weight: bolder;
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}

@@ -1,11 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './Modal.css'
 import { Rating } from "../Filter/RatingFilter/Rating"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { SearchContext } from '../../contexts/SearchContext';
 import { AddToCartButton } from '../Button/AddToCartButton';
+import { Button } from '../Button';
+import { AddRemoveItem } from '../AddRemoveItem/AddRemoveItem';
 
 function Modal () {
+    const [count, setCount] = useState(1)
     const {
         setIsOpen,
         imageProduct,
@@ -17,8 +20,13 @@ function Modal () {
 
     const setCloseModal = () => {
         setIsOpen(false)
-    }
-
+    };
+    const handleAddItem = () => {
+        setCount(count + 1)
+    };
+    const handleRemoveItem = () => {
+        setCount(count <= 1 ? 1 : count - 1)
+    };
     return (
         <div className='ModalContainer'>
             <div className='ContentModalContainer'>
@@ -34,8 +42,14 @@ function Modal () {
                     <Rating stars={rateProduct}/>
                     <h6>{descriptionProduct}</h6>
                     <div className='FooterModalContainer'>
+                        <AddRemoveItem 
+                            count={count}
+                            handleAddItem={handleAddItem}
+                            handleRemoveItem={handleRemoveItem}
+                        />
                         <AddToCartButton 
-                            numberOfProducts={2}
+                            setCloseModal={setCloseModal}
+                            numberOfProducts={count}
                             image={imageProduct}
                             price={priceProduct}
                         />

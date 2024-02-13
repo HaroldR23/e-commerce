@@ -11,6 +11,7 @@ describe("AddToCartButton component", () => {
         render(
             <SearchContext.Provider value={mockValue}>
                 <AddToCartButton
+                    setCloseModal={jest.fn()}
                     image={testImage}
                     numberOfProducts={testNumberOfProducts}
                     price={testPrice}
