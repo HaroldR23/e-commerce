@@ -9,7 +9,7 @@ describe("Modal", () => {
                 {
                     ...mockValue, 
                     titleProduct: "Title test product",
-                    priceProduct: "100",
+                    priceProduct: 100,
                     descriptionProduct: "Test description",
                 } 
             }
