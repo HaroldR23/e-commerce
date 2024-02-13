@@ -22,7 +22,12 @@ describe("TypeFilter", () => {
     it("should render name and checkbox options passed by props", () => {
         render(
             <SearchContext.Provider value={mockValue}>
-                <TypeFilter name={testName} options={testOptions}/>
+                <TypeFilter 
+                    name={testName} 
+                    options={testOptions}
+                    handleFilterOptions={jest.fn()}
+                    handleFilteredProducts={jest.fn()}
+                />
             </SearchContext.Provider>
         );
         const checkboxes = screen.getAllByRole("checkbox");
@@ -33,7 +38,12 @@ describe("TypeFilter", () => {
     it("should allows select just one checkbox at the same time, the last one selected", () => {
         render(
             <SearchContext.Provider value={mockValue}>
-                <TypeFilter name={testName} options={testOptions}/>
+                <TypeFilter 
+                    name={testName} 
+                    options={testOptions} 
+                    handleFilterOptions={jest.fn()}
+                    handleFilteredProducts={jest.fn()}
+                />
             </SearchContext.Provider>
         );
         const checkboxes = screen.getAllByRole("checkbox");
@@ -52,13 +62,17 @@ describe("TypeFilter", () => {
                 ...mockValue,
                 searchedProducts: mockSearchedProducts
             }}>
-                <TypeFilter name={testName} options={testOptions}/>
+                <TypeFilter 
+                    name={testName} 
+                    options={testOptions}
+                    handleFilterOptions={jest.fn()}
+                    handleFilteredProducts={jest.fn()}
+                />
             </SearchContext.Provider>
         );
         const checkbox = screen.getAllByRole("checkbox");
         fireEvent.click(checkbox[1]);
 
-        expect(mockValue.setIsFiltering).toHaveBeenCalledWith(true);
-        expect(mockValue.setFilteredProducts).toHaveBeenCalledWith(mockFilteredProducts);
+        expect(mockValue.setIsFilteringByCategory).toHaveBeenCalledWith(true);
     });
 });

@@ -9,10 +9,11 @@ function ResultTable () {
         searchedProducts,
         isLoading,
         isOpen,
-        isFiltering,
+        isFilteringByCategory,
+        isFilteringByRate,
         filteredProducts
       } = useContext(SearchContext);
-      console.log(searchedProducts)
+
       return (
         <div className='ResultContainer'>
             <h2>Results:</h2>
@@ -20,7 +21,7 @@ function ResultTable () {
                 {   isLoading ?
                     <span className="loader"></span>
                     :
-                    (isFiltering ? 
+                    ((isFilteringByCategory ||  isFilteringByRate) ? 
                         filteredProducts?.map((product, index) => 
                             <Card
                                 key={index}

@@ -5,4 +5,11 @@
 
 .RatingsContainer {
     margin: 10px 25px;
+    display: flex;
+    flex-direction: row;
 }
+/* .RatingsContainer input {
+    display: flex;
+    flex-direction: row;
+
+} */
