@@ -4,14 +4,12 @@ import { useState, useEffect, createContext } from "react";
 const SearchContext = createContext();
 
 function SearchProvider({ children }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isFilteringByCategory, setIsFilteringByCategory] = useState(false)
-  const [isFilteringByRate, setIsFilteringByRate] = useState(false)
-
-//   const [filterOptions, setFilterOptions] = useState({
-//     category: "",
-//     // rate: 0,
-// });
+  const [isOpen, setIsOpen] = useState(false);
+  const [isFilteringByCategory, setIsFilteringByCategory] = useState(false);
+  const [isFilteringByRate, setIsFilteringByRate] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [cartProducts, setCartProducts] = useState([]);
+  
 
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +18,7 @@ function SearchProvider({ children }) {
 
   const [imageProduct, setImageProduct] = useState("");
   const [titleProduct, setTitleProduct] = useState("");
-  const [priceProduct, setPriceProduct] = useState("");
+  const [priceProduct, setPriceProduct] = useState(0);
   const [descriptionProduct, setDescriptionProduct] = useState("");
   const [rateProduct, setRateProduct] = useState(0);
 
@@ -56,7 +54,6 @@ function SearchProvider({ children }) {
         setSearchValue,
         searchedProducts,
         setProducts,
-        // filterOptions, setFilterOptions,
         isLoading,
         isOpen,
         isFilteringByCategory, 
@@ -72,6 +69,10 @@ function SearchProvider({ children }) {
         setTitleProduct,
         priceProduct,
         setPriceProduct,
+        total,
+        setTotal,
+        cartProducts, 
+        setCartProducts,
         descriptionProduct,
         setDescriptionProduct,
         rateProduct,

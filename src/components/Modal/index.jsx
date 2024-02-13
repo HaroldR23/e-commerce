@@ -34,7 +34,11 @@ function Modal () {
                     <Rating stars={rateProduct}/>
                     <h6>{descriptionProduct}</h6>
                     <div className='FooterModalContainer'>
-                        <AddToCartButton />
+                        <AddToCartButton 
+                            numberOfProducts={2}
+                            image={imageProduct}
+                            price={priceProduct}
+                        />
                     </div>
                 </div>
             </div>

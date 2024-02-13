@@ -14,7 +14,7 @@ export const mockValue = {
     setImageProduct: mockSetFunction,
     titleProduct: "",
     setTitleProduct: mockSetFunction,
-    priceProduct: "",
+    priceProduct: 0,
     setPriceProduct: mockSetFunction,
     descriptionProduct: "",
     setDescriptionProduct: mockSetFunction,
@@ -23,5 +23,9 @@ export const mockValue = {
     isFilteringByCategory: false,
     setIsFilteringByCategory: mockSetFunction,
     isFilteringByRate: false,
-    setIsFilteringByRate: mockSetFunction
+    setIsFilteringByRate: mockSetFunction,
+    total: 0,
+    setTotal: mockSetFunction,
+    cartProducts: [], 
+    setCartProducts: mockSetFunction,
 };
