@@ -1,9 +1,9 @@
 import ButtonPropTypes from './ButtonPropTypes';
 import './Button.css';
 
-function Button({ type, handleOnCLick }) {
+function Button({ type, handleOnCLick, className }) {
     return (
-        <button className="Button" onClick={handleOnCLick}>
+        <button className={className} onClick={handleOnCLick}>
             {type}
         </button>
     )

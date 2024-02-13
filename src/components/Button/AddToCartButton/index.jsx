@@ -3,7 +3,7 @@ import { Button } from "../";
 import { SearchContext } from "../../../contexts/SearchContext";
 import AddToCartButtonPropTypes from "./AddToCartButtonPropTypes";
 
-function AddToCartButton({image, numberOfProducts, price}) {
+function AddToCartButton({image, numberOfProducts, price, setCloseModal}) {
     const {
         setTotal,
         total,
@@ -20,9 +20,10 @@ function AddToCartButton({image, numberOfProducts, price}) {
                 numberOfProducts: numberOfProducts
             }
         ]);
+        setCloseModal();
     };
     return (
-        <Button type="Add" handleOnCLick={handleOnClick}/>
+        <Button type="Add" className="Button" handleOnCLick={handleOnClick}/>
     )
 }
 
