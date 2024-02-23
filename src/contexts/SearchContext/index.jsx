@@ -5,22 +5,23 @@ const SearchContext = createContext();
 
 function SearchProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [isFilteringByCategory, setIsFilteringByCategory] = useState(false);
   const [isFilteringByRate, setIsFilteringByRate] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [priceProduct, setPriceProduct] = useState(0);
+  const [rateProduct, setRateProduct] = useState(0);
   const [total, setTotal] = useState(0);
+
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
-  
+  const [products, setProducts] = useState([]);
 
   const [searchValue, setSearchValue] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
   const [imageProduct, setImageProduct] = useState("");
   const [titleProduct, setTitleProduct] = useState("");
-  const [priceProduct, setPriceProduct] = useState(0);
   const [descriptionProduct, setDescriptionProduct] = useState("");
-  const [rateProduct, setRateProduct] = useState(0);
 
   const getData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -28,7 +29,25 @@ function SearchProvider({ children }) {
     return data
   };
 
-  useEffect(() => {
+  const setNumberOfProducts = (title, image, price, currentNumberOfProducts) => {
+    const index = cartProducts.findIndex((cartProduct) => cartProduct.id === title);
+    if (index >= 0) {
+        cartProducts[index].numberOfProducts = cartProducts[index].numberOfProducts + currentNumberOfProducts;
+        setCartProducts(cartProducts);
+    } else {
+        setCartProducts([
+                ...cartProducts,
+                {   
+                    id: title,
+                    image: image,
+                    price: price,
+                    numberOfProducts: currentNumberOfProducts
+                }
+            ]);
+    }
+};
+
+useEffect(() => {
     const fetchData = async () => {
       try {
         const productList = await getData();
@@ -52,6 +71,7 @@ function SearchProvider({ children }) {
       value={{
         searchValue,
         setSearchValue,
+        setNumberOfProducts,
         searchedProducts,
         setProducts,
         isLoading,
@@ -76,7 +96,9 @@ function SearchProvider({ children }) {
         descriptionProduct,
         setDescriptionProduct,
         rateProduct,
-        setRateProduct
+        setRateProduct,
+        isCartOpen,
+        setIsCartOpen
       }}
     >
       {children}

@@ -15,7 +15,7 @@ function Modal () {
         titleProduct,
         priceProduct,
         descriptionProduct,
-        rateProduct
+        rateProduct,
     } = useContext(SearchContext);
 
     const setCloseModal = () => {
@@ -27,6 +27,7 @@ function Modal () {
     const handleRemoveItem = () => {
         setCount(count <= 1 ? 1 : count - 1)
     };
+
     return (
         <div className='ModalContainer'>
             <div className='ContentModalContainer'>
@@ -42,12 +43,13 @@ function Modal () {
                     <Rating stars={rateProduct}/>
                     <h6>{descriptionProduct}</h6>
                     <div className='FooterModalContainer'>
-                        <AddRemoveItem 
+                        <AddRemoveItem
                             count={count}
                             handleAddItem={handleAddItem}
                             handleRemoveItem={handleRemoveItem}
                         />
-                        <AddToCartButton 
+                        <AddToCartButton
+                            title={titleProduct}
                             setCloseModal={setCloseModal}
                             numberOfProducts={count}
                             image={imageProduct}

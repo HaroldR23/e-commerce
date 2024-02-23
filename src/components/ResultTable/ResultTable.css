@@ -2,6 +2,14 @@
     grid-area: results;
 }
 
+
+.CardResultsAndCartContainer{
+    display: flex;  
+    margin-top: 25px;
+    justify-content: space-evenly;
+    padding-right: 0%;
+    
+}
 .ResultContainer .CardResultsContainer {
     display: grid;
     grid-template-columns: repeat(4, 250px);
@@ -9,6 +17,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    margin-right: 30px;
 }
 
 .loader {

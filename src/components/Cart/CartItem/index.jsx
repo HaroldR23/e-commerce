@@ -20,14 +20,15 @@ function CartItem({price, productImg, numberOfProducts, title}) {
     const handleAddItem = () => {
         setCount(count + 1);
         setNumberOfProducts(title, productImg, price, 1)
-        setTotal(total + (count * price));
+        const currentTotal = (total + price).toFixed(2)
+        setTotal(parseFloat(currentTotal));
     };
 
     const handleRemoveItem = () => {
         setNumberOfProducts(title, productImg, price, count <= 1 ? 0 : -1)
         setCount(count <= 1 ? 1 : count - 1);
-        const currentTotal = total - (count * price);
-        setTotal(currentTotal < 0 ? 0 : currentTotal);
+        const currentTotal = (total - price).toFixed(2)
+        setTotal(count <= 1 ? total  : parseFloat(currentTotal))
     };
 
     return (
