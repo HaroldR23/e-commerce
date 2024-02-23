@@ -1,0 +1,14 @@
+.CartItemContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid 1px gray;
+    width: auto;
+    padding-top: 15px;
+}
+
+.CartItemContainer img{
+    width: 50%;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+}
