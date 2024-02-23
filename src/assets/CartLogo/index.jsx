@@ -1,8 +1,8 @@
 import './CartLogo.css'
 
-function CartLogo () {
+function CartLogo ({handleOnClick}) {
     return (
-        <div className='cartLogoContainer'>
+        <div className='cartLogoContainer' onClick={handleOnClick}>
             <img src='src/assets/CartLogo/shopping-cart.png'/>
         </div>
     )

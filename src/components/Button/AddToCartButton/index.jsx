@@ -3,23 +3,16 @@ import { Button } from "../";
 import { SearchContext } from "../../../contexts/SearchContext";
 import AddToCartButtonPropTypes from "./AddToCartButtonPropTypes";
 
-function AddToCartButton({image, numberOfProducts, price, setCloseModal}) {
+function AddToCartButton({image, numberOfProducts, price, setCloseModal, title}) {
     const {
         setTotal,
         total,
-        cartProducts,
-        setCartProducts
+        setNumberOfProducts,
     } = useContext(SearchContext);
     const handleOnClick = () => {
-        setTotal(total + (numberOfProducts * price));
-        setCartProducts([
-            ...cartProducts,
-            {
-                image: image,
-                price: price,
-                numberOfProducts: numberOfProducts
-            }
-        ]);
+        const currentTotal = (total + (numberOfProducts * price)).toFixed(2)
+        setTotal(parseFloat(currentTotal));
+        setNumberOfProducts(title, image, price, numberOfProducts);
         setCloseModal();
     };
     return (

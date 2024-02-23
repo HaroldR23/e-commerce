@@ -22,3 +22,17 @@
     margin-right: 5px;
 
 }
+
+.OperationItem:hover{
+    background-color: transparent;
+    border: solid #56D35B 3px;
+    border-radius: 50%;
+    color: #56D35B;
+    font-size: medium;
+    font-weight: bolder;
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}

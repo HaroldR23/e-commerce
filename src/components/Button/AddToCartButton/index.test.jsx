@@ -6,6 +6,7 @@ describe("AddToCartButton component", () => {
     const testImage = "test/image/path";
     const testNumberOfProducts = 1;
     const testPrice = 50;
+    const testTitle = "Test title";
 
     beforeEach(() => {
         render(
@@ -15,6 +16,7 @@ describe("AddToCartButton component", () => {
                     image={testImage}
                     numberOfProducts={testNumberOfProducts}
                     price={testPrice}
+                    title={testTitle}
                 />
             </SearchContext.Provider>
         );
@@ -28,13 +30,6 @@ describe("AddToCartButton component", () => {
         const addToCartButton = screen.getByRole("button");
         fireEvent.click(addToCartButton);
         expect(mockValue.setTotal).toHaveBeenCalledWith(mockValue.total + (testNumberOfProducts * testPrice));
-        expect(mockValue.setCartProducts).toHaveBeenCalledWith([
-            ...mockValue.cartProducts, 
-            {
-                image: testImage,
-                price: testPrice,
-                numberOfProducts: testNumberOfProducts
-            }
-        ])
+        expect(mockValue.setNumberOfProducts).toHaveBeenCalledWith(testTitle, testImage, testPrice, testNumberOfProducts);
     });
 });

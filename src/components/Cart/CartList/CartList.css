@@ -1,0 +1,26 @@
+.CartListContainer {
+    border: solid 1px gray;
+    padding-top: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+.CartListContainer .SubTotalContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+#subTotalNumber {
+    color: #FF3663;
+    font-weight: 500;
+}
+
+#subTotalText {
+    color: #000000;
+    font-weight: 500;
+}
