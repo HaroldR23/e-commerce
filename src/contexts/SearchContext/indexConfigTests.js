@@ -28,4 +28,5 @@ export const mockValue = {
     setTotal: mockSetFunction,
     cartProducts: [], 
     setCartProducts: mockSetFunction,
+    setNumberOfProducts: mockSetFunction
 };
