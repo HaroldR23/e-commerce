@@ -2,7 +2,7 @@ import { Button } from "../";
 
 function ContinueCartButton() {
     return (
-        <Button type="Continue"/>
+        <Button type="Continue" className="Button"/>
     )
 }   
 
