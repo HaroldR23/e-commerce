@@ -4,7 +4,6 @@ import { SearchContext } from "../../../contexts/SearchContext";
 import { mockValue } from "../../../contexts/SearchContext/indexConfigTests";
 
 describe("SortFilter component", () => {
-    let container;
     const mockSearchedProducts = [
         {title: "Blazers", price: 7.9},
         {title: "Pants", price: 6.5},
@@ -27,7 +26,7 @@ describe("SortFilter component", () => {
     ];
 
     beforeEach(() => {
-        container = render(
+        render(
         <SearchContext.Provider value={{
                 ...mockValue,
                 searchedProducts: mockSearchedProducts
@@ -35,7 +34,7 @@ describe("SortFilter component", () => {
         >
             <SortFilter />
         </SearchContext.Provider>   
-    ).container;
+    );
 })
     it("renders four options like sorting options, Name, low to high and high to low prices", async () => {
         const options = await screen.findAllByRole("option");
