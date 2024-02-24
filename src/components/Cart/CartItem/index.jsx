@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AddRemoveItem } from "../../AddRemoveItem/AddRemoveItem";
 import CartItemPropTypes from "./CartItemPropTypes";
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import "./CartItem.css";
 import { useContext } from "react";
 import { SearchContext } from "../../../contexts/SearchContext";
@@ -10,7 +11,9 @@ function CartItem({price, productImg, numberOfProducts, title}) {
     const {
         setTotal,
         total,
-        setNumberOfProducts
+        setNumberOfProducts,
+        cartProducts,
+        setCartProducts
     } = useContext(SearchContext);
 
     useEffect(() => {
@@ -30,9 +33,16 @@ function CartItem({price, productImg, numberOfProducts, title}) {
         const currentTotal = (total - price).toFixed(2)
         setTotal(count <= 1 ? total  : parseFloat(currentTotal))
     };
+    const handleRemoveCartProduct = () => {
+        const currentCartProducts = cartProducts.filter(cartProduct => cartProduct.id !== title);
+        const currentTotal =(total - (count * price)).toFixed(2);
+        setTotal(parseFloat(currentTotal));
+        setCartProducts(currentCartProducts);
+    };
 
     return (
         <div className="CartItemContainer">
+            <AiOutlineCloseCircle className='RemoveCartProduct' onClick={handleRemoveCartProduct}/>
             <img src={productImg}/>
             <div className="TotalPrice">{price * count}</div>
             <AddRemoveItem

@@ -8,11 +8,25 @@ describe("CartItem", () => {
     const numberOfProducts = 2;
     const price = 100;
     const productImg = "path/src/image";
-    const title = "Test product title";
+    const title = "Test product title 1";
     let container;
+    const mockCartProducts = [
+        {
+            id: "Test product title 1",
+            image: "path/src/image",
+            price: 100,
+            numberOfProducts: 2,
+        },
+        {
+            id: "Test product title 2",
+            image: "path/src/image",
+            price: 50,
+            numberOfProducts: 1,
+        }
+    ];
     beforeEach(() => {
         container = render(
-            <SearchContext.Provider value={mockValue}>
+            <SearchContext.Provider value={{...mockValue, cartProducts: mockCartProducts}}>
                 <CartItem
                     numberOfProducts={numberOfProducts} 
                     price={price}
@@ -64,4 +78,18 @@ describe("CartItem", () => {
         expect(mockValue.setNumberOfProducts).toHaveBeenCalled()
         expect(mockValue.setTotal).toHaveBeenCalled()
     });
-})
+    
+    it("should call setCartProducts context method when the user clicks on remove cart product button", () => {
+        const removeCartProductButton = container.querySelector(".RemoveCartProduct");
+        fireEvent.click(removeCartProductButton);
+        const currentCartProducts = mockCartProducts.filter(cartProduct => cartProduct.id !== title);
+        expect(mockValue.setCartProducts).toHaveBeenCalledWith(currentCartProducts);
+    });
+
+    it("should call setTotal context method when the user clicks on remove cart product button", () => {
+        const removeCartProductButton = container.querySelector(".RemoveCartProduct");
+        fireEvent.click(removeCartProductButton);
+        const currentTotal =(mockValue.total - (numberOfProducts * price)).toFixed(2);
+        expect(mockValue.setTotal).toHaveBeenCalledWith(parseFloat(currentTotal));
+    });
+});

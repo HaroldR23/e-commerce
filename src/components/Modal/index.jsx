@@ -1,10 +1,9 @@
 import { useContext, useState } from 'react';
 import './Modal.css'
 import { Rating } from "../Filter/RatingFilter/Rating"
-import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { SearchContext } from '../../contexts/SearchContext';
 import { AddToCartButton } from '../Button/AddToCartButton';
-import { Button } from '../Button';
 import { AddRemoveItem } from '../AddRemoveItem/AddRemoveItem';
 
 function Modal () {
