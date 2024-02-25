@@ -2,8 +2,12 @@ import RatingPropTypes from './RatingPropTypes';
 import { AiFillStar } from 'react-icons/ai'
 import { AiOutlineStar } from 'react-icons/ai'
 import './Rating.css'
+import { useContext } from 'react';
+import { SearchContext } from '../../../../contexts/SearchContext';
 
 function Rating ( {stars} ) {
+    const { widthSize } = useContext(SearchContext);
+
     const fillStars = () => {
         const etiquetas = [];
         const starSelected = [...Array(stars)].map((_, index) => (
@@ -20,7 +24,7 @@ function Rating ( {stars} ) {
     return (
         <div className='RatingContainer'>
             {fillStars()}
-            <h3>& up</h3>
+            {widthSize > 430 && <h3>& up</h3>}
         </div>
     )
 }

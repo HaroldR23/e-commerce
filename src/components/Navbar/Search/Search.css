@@ -22,3 +22,10 @@
 .SearchContainer img {
     height: 20px;
 }
+
+@media screen and (max-width: 430px) {
+    .SearchContainer {
+        min-width: 300px;
+        margin: 20px 20px;
+    }
+}

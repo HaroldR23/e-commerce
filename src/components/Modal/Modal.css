@@ -61,3 +61,14 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 430px) {
+    .ContentModalContainer {
+        height: 50%;
+        width: 80%;
+    }  
+    .closeModal {
+        position: initial;
+        margin-left: 500px;
+    }
+}

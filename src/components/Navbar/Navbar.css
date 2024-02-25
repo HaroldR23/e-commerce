@@ -4,3 +4,27 @@
     padding: 15px;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 430px) {
+    .NavbarContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(90deg, rgba(165,13,138,1) 0%, rgba(254,54,99,1) 100%);
+        padding: 15px;
+        /* height: 180px; */
+        /* justify-content: space-between; */
+    }   
+    #cartLogo {
+        display: block;
+        position: absolute;
+        margin-left: 350px;
+        margin-top: 15px;
+    }
+    /* .NavbarContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+    } */
+}

@@ -18,7 +18,7 @@ function ResultTable () {
         filteredProducts,
         isCartOpen,
       } = useContext(SearchContext);
-
+      console.log(searchedProducts)
       useEffect(() => {
           const cardResultsContainer = document.querySelector(".CardResultsContainer");
         if (isCartOpen) cardResultsContainer.style.gridTemplateColumns = threeGridTemplateColumns;

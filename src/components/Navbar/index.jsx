@@ -18,7 +18,9 @@ function Navbar() {
         <div className='NavbarContainer'>
             <Logo />
             <Search />
-            <CartLogo handleOnClick={handleOnClick} />
+            <div id="cartLogo">
+                <CartLogo  handleOnClick={handleOnClick} />
+            </div>
         </div>
     )
 }

@@ -6,3 +6,9 @@
     padding: 0 5px;
     color: #FF3948;
 }
+
+@media screen and (max-width: 430px) {
+    .ResultPreviewContainer {
+        visibility: hidden;
+    }
+}
