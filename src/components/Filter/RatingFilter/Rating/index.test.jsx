@@ -1,9 +1,22 @@
 import { render } from '@testing-library/react';
 import { Rating } from './';
+import { SearchContext } from '../../../../contexts/SearchContext';
+import { mockValue } from '../../../../contexts/SearchContext/indexConfigTests';
 
 describe("Rating Component", () => {
+  let container;
+  beforeEach(() => {
+    <SearchContext.Provider value={mockValue}>
+    <Rating stars={3} />
+    </SearchContext.Provider>
+
+  })
   it("renders Rating component with filled and not filled stars", () => {
-    const { container } = render(<Rating stars={3} />);
+    const { container } = render(
+      <SearchContext.Provider value={mockValue}>
+        <Rating stars={3} />
+      </SearchContext.Provider>
+    );
     
     const ratingContainer = container.querySelector(".RatingContainer");
     expect(ratingContainer).toBeInTheDocument;
@@ -19,7 +32,11 @@ describe("Rating Component", () => {
   });
 
   it("renders Rating component with all filled stars", () => {
-    const { container } = render(<Rating stars={5} />);
+    const { container } = render(
+      <SearchContext.Provider value={mockValue}>
+        <Rating stars={5} />
+      </SearchContext.Provider>
+    );
     
     const filledStars = container.querySelectorAll(".StarFilled");
     expect(filledStars.length).toBe(5);
@@ -30,7 +47,11 @@ describe("Rating Component", () => {
   });
 
   it("renders Rating component with no filled stars", () => {
-    const { container } = render(<Rating stars={0} />);
+    const { container } = render(
+      <SearchContext.Provider value={mockValue}>
+        <Rating stars={0} />
+      </SearchContext.Provider>
+    );
     
     const notFilledStars = container.querySelectorAll(".StarNotFilled");
     expect(notFilledStars.length).toBe(5);

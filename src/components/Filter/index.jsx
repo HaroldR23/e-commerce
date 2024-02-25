@@ -9,12 +9,12 @@ function Filter () {
     const {
         searchedProducts,
         setFilteredProducts,
+        widthSize
     } = useContext(SearchContext);
 
     useEffect(() => {
         handleFilteredProducts()
     }, [filterOptions]);
-
     const deleteFilterOptionKey = (filterOptions, optionFilterName) => {
         const newFilterOptions = Object.keys(filterOptions).reduce((obj, key) => {
             if (key !== optionFilterName) {
@@ -53,28 +53,30 @@ function Filter () {
     };
 
     return (
-        <div className='FilterContainer'>
-            <TypeFilter
-                handleFilteredProducts={handleFilteredProducts}
-                handleFilterOptions={handleFilterOptions}
-                name='Category'
-                options={[
-                    {id: "men's clothing", label: "Men's Clothing", checked: false},
-                    {id: "women's clothing", label: "Women's Clothing", checked: false},
-                    {id: "jewelery", label: "Jewelery", checked: false},
-                    {id: "electronics", label: "Electronics", checked: false}
-                ]}
-            />
-            <RatingFilter
-                handleFilteredProducts={handleFilteredProducts}
-                handleFilterOptions={handleFilterOptions}
-                options={[
-                    { id: "4", label: "4", checked: false },
-                    { id: "3", label: "3", checked: false },
-                    { id: "2", label: "2", checked: false },
-                    { id: "1", label: "1", checked: false },
-                ]}
-            />
+        <div>
+            {widthSize > 430 && <div className='FilterContainer'>
+                <TypeFilter
+                    handleFilteredProducts={handleFilteredProducts}
+                    handleFilterOptions={handleFilterOptions}
+                    name='Category'
+                    options={[
+                        {id: "men's clothing", label: "Men's Clothing", checked: false},
+                        {id: "women's clothing", label: "Women's Clothing", checked: false},
+                        {id: "jewelery", label: "Jewelery", checked: false},
+                        {id: "electronics", label: "Electronics", checked: false}
+                    ]}
+                    />
+                <RatingFilter
+                    handleFilteredProducts={handleFilteredProducts}
+                    handleFilterOptions={handleFilterOptions}
+                    options={[
+                        { id: "4", label: "4", checked: false },
+                        { id: "3", label: "3", checked: false },
+                        { id: "2", label: "2", checked: false },
+                        { id: "1", label: "1", checked: false },
+                    ]}
+                    />
+            </div>}
         </div>
     )
 }

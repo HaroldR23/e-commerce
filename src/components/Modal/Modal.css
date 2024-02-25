@@ -61,3 +61,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 430px) {
+    .ContentModalContainer {
+        height: 40%;
+        width: 80%;
+        margin-bottom: 250px;
+    }  
+}

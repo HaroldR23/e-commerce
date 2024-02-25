@@ -7,3 +7,9 @@
 .cartLogoContainer img{
     height: 30px;
 }
+
+@media screen and (max-width: 430px) {
+    .cartLogoContainer img{
+        height: 20px;
+    }
+}

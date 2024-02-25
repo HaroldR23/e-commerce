@@ -18,3 +18,12 @@
     object-fit: contain;
     mix-blend-mode: color-burn;
 }
+
+@media screen and (max-width: 430px) {
+    .CardContainer {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+        width: 350px;
+    }
+}

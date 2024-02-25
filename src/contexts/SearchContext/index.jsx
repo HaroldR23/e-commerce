@@ -13,6 +13,7 @@ function SearchProvider({ children }) {
   const [priceProduct, setPriceProduct] = useState(0);
   const [rateProduct, setRateProduct] = useState(0);
   const [total, setTotal] = useState(0);
+  const [widthSize, setWidthSize] = useState(window.innerWidth);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
@@ -46,6 +47,19 @@ function SearchProvider({ children }) {
             ]);
     }
 };
+
+useEffect(() => {
+  const handleResize = () => {
+    setWidthSize(window.innerWidth)
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+
+}, []);
 
 useEffect(() => {
     const fetchData = async () => {
@@ -98,7 +112,8 @@ useEffect(() => {
         rateProduct,
         setRateProduct,
         isCartOpen,
-        setIsCartOpen
+        setIsCartOpen,
+        widthSize
       }}
     >
       {children}
